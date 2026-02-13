@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forever With Trisha ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: Arial;
+    background: radial-gradient(circle, #ff758c, #ff4d6d);
+    color: white;
+    overflow: hidden;
+}
+
+/* Heartbeat effect */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.container {
+    margin-top: 70px;
+    animation: heartbeat 2s infinite;
+}
+
+img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 0 25px white;
+    object-fit: cover;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: #ff4d6d;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="trisha.jpg">
+    <h1>Trisha ❤️</h1>
+    <p>Since 7 November, my world became brighter.</p>
+
+    <button onclick="openLetter()">Open Love Letter 💌</button>
+    <button onclick="stayForever()">Will You Stay Forever? 💍</button>
+</div>
+
+<div class="popup" id="letter">
+    <h3>My Love Letter ❤️</h3>
+    <p>
+    Trisha, from 7 November till forever,
+    you are my peace, my happiness,
+    and the most beautiful part of my life.
+    – Gagan 💕
+    </p>
+    <button onclick="closeLetter()">Close</button>
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+}
+
+function closeLetter() {
+    document.getElementById("letter").style.display = "none";
+}
+
+function stayForever() {
+    alert("Yayyy ❤️ Forever starts now!");
+}
+
+/* Floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
